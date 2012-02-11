@@ -23,6 +23,8 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
   gem "rspec-rails", "~> 2.6"
 end
 
