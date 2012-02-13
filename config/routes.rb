@@ -1,4 +1,7 @@
 RolesManagement::Application.routes.draw do
+  # get "dashboard/show"
+  match 'dashboard' => 'dashboard#show'
+
   devise_for :users
 
   get "welcome/index"
