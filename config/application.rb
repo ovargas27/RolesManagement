@@ -59,5 +59,9 @@ module RolesManagement
     # forcing to not access the DB or load models when precompiling your assets
     config.assets.initialize_on_precompile = false
 
+    config.generators do |g|
+      g.fixture_replacement :machinist
+    end
+
   end
 end

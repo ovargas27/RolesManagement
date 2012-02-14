@@ -1,4 +1,6 @@
 RolesManagement::Application.routes.draw do
+  resources :posts
+
   # get "dashboard/show"
   match 'dashboard' => 'dashboard#show'
 

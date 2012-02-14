@@ -15,6 +15,7 @@ User.blueprint do
 end
 
 Post.blueprint do
+  user   { User.make }
   title  { "A Post" }
-  body   { "Lorem ipsum..." }
+  content   { "Lorem ipsum..." }
 end
