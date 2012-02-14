@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :authenticate_user!
+  load_and_authorize_resource
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /posts
   # GET /posts.json
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = current_user.create_post(params[:post])
+    @post = current_user.new_post(params[:post])
 
     respond_to do |format|
       if @post.save
