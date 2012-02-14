@@ -1,3 +1,7 @@
+def current_user
+  @current_user
+end
+
 Given /^I am not authenticated$/ do
   visit destroy_user_session_path # '/users/sign_out'
 end
@@ -5,7 +9,8 @@ end
 Given /^I am a new, authenticated user$/ do
   email = 'foo@example.com'
   password = 'secretpass'
-  User.new(:email => email, :password => password, :password_confirmation => password).save!
+  @current_user = User.new(:email => email, :password => password, :password_confirmation => password)
+  @current_user.save!
 
   visit '/users/sign_in'
   fill_in "user_email", :with => email

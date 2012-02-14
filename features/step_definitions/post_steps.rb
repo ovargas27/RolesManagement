@@ -1,5 +1,7 @@
 Given /^A post exists$/ do
-  @resource = Post.create!(title: 'foo post')
+  @resource = Post.new(title: 'foo post')
+  @resource.user = current_user
+  @resource.save!
 end
 
 Given /^I am visit post page$/ do
