@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'cantango'
+gem 'cantango_editor', :git => "git://github.com/stanislaw/cantango_editor.git"
 gem 'devise'
 gem 'haml-rails'
 gem 'rails', '3.2.1'
