@@ -92,7 +92,7 @@ describe PostsController do
 
     describe "with valid params" do
       it "updates the requested post" do
-        post = Post.make!
+        post = Post.make!( user:@user )
         # Assuming there are no other posts in the database, this
         # specifies that the Post created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -102,13 +102,13 @@ describe PostsController do
       end
 
       it "assigns the requested post as @post" do
-        post = Post.create! valid_attributes
+        post = Post.make!( user:@user )
         put :update, {:id => post.to_param, :post => valid_attributes}
         assigns(:post).should eq(post)
       end
 
       it "redirects to the post" do
-        post = Post.create! valid_attributes
+        post = Post.make!( user:@user )
         put :update, {:id => post.to_param, :post => valid_attributes}
         response.should redirect_to(post)
       end
@@ -116,7 +116,7 @@ describe PostsController do
 
     describe "with invalid params" do
       it "assigns the post as @post" do
-        post = Post.create! valid_attributes
+        post = Post.make!( user:@user )
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
         put :update, {:id => post.to_param, :post => {}}
@@ -124,7 +124,7 @@ describe PostsController do
       end
 
       it "re-renders the 'edit' template" do
-        post = Post.create! valid_attributes
+        post = Post.make!( user:@user )
         # Trigger the behavior that occurs when invalid params are submitted
         Post.any_instance.stub(:save).and_return(false)
         put :update, {:id => post.to_param, :post => {}}
@@ -137,14 +137,14 @@ describe PostsController do
     login_user
 
     it "destroys the requested post" do
-      post = Post.create! valid_attributes
+      post = Post.make!( user:@user )
       expect {
         delete :destroy, {:id => post.to_param}
       }.to change(Post, :count).by(-1)
     end
 
     it "redirects to the posts list" do
-      post = Post.create! valid_attributes
+      post = Post.make!( user:@user )
       delete :destroy, {:id => post.to_param}
       response.should redirect_to(posts_url)
     end
