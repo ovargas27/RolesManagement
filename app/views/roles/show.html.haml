@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Resource classname:
+  = @role.resource_classname
+%p
+  %b Can read:
+  = @role.can_read
+%p
+  %b Can create:
+  = @role.can_create
+%p
+  %b Can update:
+  = @role.can_update
+%p
+  %b Can destroy:
+  = @role.can_destroy
+
+= link_to 'Edit', edit_role_path(@role)
+\|
+= link_to 'Back', roles_path

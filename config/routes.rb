@@ -1,4 +1,6 @@
 RolesManagement::Application.routes.draw do
+  resources :roles
+
   resources :posts
 
   # get "dashboard/show"

@@ -19,3 +19,7 @@ Post.blueprint do
   title  { "A Post" }
   content   { "Lorem ipsum..." }
 end
+
+Role.blueprint do
+  # Attributes here
+end

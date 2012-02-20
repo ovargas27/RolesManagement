@@ -1,0 +1,27 @@
+%h1 Listing roles
+
+%table
+  %tr
+    %th Resource classname
+    %th Can read
+    %th Can create
+    %th Can update
+    %th Can destroy
+    %th
+    %th
+    %th
+
+  - @roles.each do |role|
+    %tr
+      %td= role.resource_classname
+      %td= role.can_read
+      %td= role.can_create
+      %td= role.can_update
+      %td= role.can_destroy
+      %td= link_to 'Show', role
+      %td= link_to 'Edit', edit_role_path(role)
+      %td= link_to 'Destroy', role, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Role', new_role_path
